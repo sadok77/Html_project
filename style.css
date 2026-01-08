@@ -1,0 +1,520 @@
+
+*{ 
+   
+    margin: 0;
+    padding: 0;
+    font-family:'Times New Roman', Times, serif;
+    box-sizing: border-box; 
+    transition: all 0.2s linear;
+    text-decoration: none; /*suppr soulignement des liens*/
+    border: none;
+}
+html{
+font-size: 66.5%;
+overflow: auto;
+scroll-padding-top: 7em;
+scroll-behavior: smooth;
+}
+
+
+body{
+    position: relative;
+}
+.navbar {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.navbar-nav .nav-link {
+    font-size: 1.4rem;
+    padding: 0.8rem 1.5rem; /* espace cliquable */
+    color: #000;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ea1f33; 
+}
+
+
+/* HOME – Mobile First */
+#home {
+  margin-top: 3rem;
+  min-height: 100vh;
+  padding: 0 8%;
+  display: flex; /*alignement*/
+  flex-wrap: wrap; /* passe en colonne sur mobile */
+  align-items: center; 
+  justify-content: center;
+  gap: 2rem; /* espace entre texte et image */
+}
+
+#home .left, #home .right {
+  width: 100%; /*le texte et l’image prennent chacun une ligne*/
+  text-align: center;
+} /* Sur mobile, les deux passent l’un en dessous de l’autre.*/
+
+
+#home .right img{
+  width:100%;
+  max-width:58rem; /*limite la largeur sur grand écran*/
+  display:block;   /*enlève l’espace sous l’image*/
+}
+
+
+/* TABLET */
+@media (min-width: 768px) {
+  #home .left {
+    text-align: left;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  #home {
+    justify-content: space-between;
+  }
+
+  #home .left { width: 35%; text-align: left; }
+  #home .right { width: 55%; }
+}
+
+
+.section_title{
+    text-transform: uppercase; /*Transforme en majuscules*/
+    position: relative;
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+    
+.section_title::before {
+    content: "";
+    position: absolute;
+    top: -1rem;               
+    left: 50%;               
+    transform: translateX(-50%);
+    width: 20rem;             
+    height: 0.5rem;              
+    background-color: #ea1f33;
+    border-radius: 0.3rem;
+}
+.section_title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;            /* distance en dessous du texte */
+    left: 50%;                /* centre horizontal */
+    transform: translateX(-50%);
+    width: 200px;              /* largeur de la bande */
+    height: 5px;              /* épaisseur de la bande */
+    background-color: #ea1f33;
+    border-radius: 3px;}
+
+#cars, #services, #contact {
+    display: flex; /*transforme ces sections en conteneurs flexibles.*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;          /* espace vertical entre les blocs */
+}
+/* scrollbar CSS */
+
+::-webkit-scrollbar {
+    width: 0.8rem;
+    background-color: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ea1f33;
+    border-radius: 6rem; /*arrondit les bords du curseur*/
+} 
+
+
+
+
+#home .left h1{
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+#home .left span{
+    color:#ea1f33;  
+}
+#home .left p{
+    margin-bottom: 3rem; /*espace sous chaque élément.*/
+    color: #999;
+    font-size: 1.5rem;
+}
+#home .left a{ background-color: #ea1f33;
+    padding: 1rem 2rem; /*espace à l’intérieur du bouton*/
+    font-size: 1.4rem;
+    color: #fff;
+    transition: 0.5s;
+
+}
+#home .left a:hover{
+    background-color: black; /*Change la couleur de fond du 
+                                 lien en noir quand on survole.*/
+}
+
+
+
+
+.images{
+ margin: 100px auto; /*espace extérieur autour de l’élément.*/
+ padding: 0 9%; /*espace intérieur entre 
+                le bord de l’élément et son contenu.*/
+}
+.images ul{
+    display: flex; /*Alignement et distribution des éléments.*/
+    flex-wrap: wrap; /*passer à la ligne suivante si la largeur est dépassée.*/
+    justify-content: center;   /* Centre toutes les cartes */
+    gap: 30px;                 /* Espace entre les voitures */
+}
+
+
+
+/* ----- CARS : MOBILE FIRST ----- */
+.images li {
+  flex: 1 1 260px;
+  max-width: 100%;
+}
+
+
+
+/* TABLET */
+@media (min-width: 768px) {
+  .images li {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .images li {
+    flex: 1 1 30%;
+    max-width: 30%;
+  }
+}
+
+.images li:hover {
+    transform: translateY(-5px);
+}
+.images li div{
+    width: 100%;
+    height: 60%;
+    
+}
+.images li div img{
+        width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+.images li a {
+    margin-top: 10px;   /* Décale le texte vers le bas */
+    display: block;
+    padding : 15px 0;
+
+}
+.images li span:first-of-type {
+    display: block;
+    margin-top: 15px; 
+    
+}
+.images li span{
+    color: black;
+    font-size: 14px;
+    padding: 1px 40px;
+}
+
+.car {
+    display: flex;
+    flex-direction: column;
+    align-items: center;        /* centre tout sous l’image */
+    padding-bottom: 20px;
+    text-align: center;         /* centre le texte */
+}
+
+.car span, .car .prix, .car a {
+    display: block; /* Chaque élément sur sa ligne */
+
+}
+
+
+
+.car span:nth-of-type(1) {/* Style du premier texte de la voiture */
+
+    font-size: 1.8rem;      /* Taille du texte */
+    font-weight: 700;       /* Texte en gras */
+    letter-spacing: 1px;    /* Espacement entre les lettres */
+    margin-top: 15px;       /* Espace au-dessus */
+    color: #111;          /* Couleur du texte (gris très foncé) */
+}
+
+
+.car .prix {
+    font-size: 1.6rem;
+    color: #444;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+
+.car a {
+    display: inline-block; /* Bloc modifiable mais reste sur la même ligne */
+    background: #ea1f33;
+    color: #fff;
+    padding: 11px 18px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.4rem;
+    transition: 0.3s; /* Animation fluide pour les changements*/
+    
+}
+
+.car a:hover {
+    background: #000;
+    color: #fff;
+}
+
+.list_services {
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;         
+    margin: 4rem 0;
+    width: 100%;
+
+}
+
+.service{
+    width: 18rem; 
+    padding: 1.5em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+    margin: 1em;
+}
+.service i {
+    font-size: 2rem;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ea1f33;
+    color: #fff;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+.service p {
+    font-size: 1rem;      
+}
+.service h3 {
+    font-size: 1.6rem;             
+    margin-bottom: 1rem;
+  }
+
+.service a {
+margin-top : 1.5rem; 
+color: #ea1f33;
+padding: 0.8rem 1.5rem;
+ border: 0.125rem solid #ea1f33;
+font-size: 1rem;
+border-radius: 0.5rem;
+}
+
+.read_more {
+    font-size: 1.7rem;    /* Taille du lien */
+    color: #007BFF;       /* Couleur du lien */
+    text-decoration: none; 
+    font-weight: bold;    /* Lien en gras */
+}
+.read_more:hover {
+    color: #0056b3;       
+    text-decoration: underline;  
+}
+
+.localisation_contact {
+    display: flex;                     
+    align-items: center;               
+    justify-content: space-between;           
+    width: 100%;
+    margin: 100px 0;                                    
+   height: 80vh;                       
+}
+                   
+.localisation{
+    width: 49%;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.2);
+}
+.localisation iframe{
+   width: 100%;
+   border-radius: 0.4rem; 
+
+}
+.localisation_contact .form_contact {
+    width: 46%;
+    height: 85%;
+     border-radius: 0.4rem;
+     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+     padding: 0.75rem 1.25rem;
+}
+.localisation_contact h3 {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+     color: #333;
+    text-align: center;
+}
+.localisation_contact .form_contact  form {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+width: 100%;
+}
+.localisation_contact form input , textarea {
+    border: 2px solid #ccc;
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 5px;
+    outline: 0;
+    border-radius: 6px;
+    font-size: 15px;
+    resize: none;
+
+}
+.localisation_contact form input[type="submit"]{
+margin-bottom: 0;
+background-color: #ea1f33;
+color: #fff;
+border: 0;
+
+}
+footer {
+background-color: #ea1f33;
+text-align: center;
+padding: 1rem 0;
+color: #fff;
+font-size: 1.4rem;
+}
+.footer {
+    background-color: #111;
+    color: #fff;
+    padding: 4rem 8% 2rem;
+}
+
+.footer_container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.footer_box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #ea1f33;
+}
+
+.footer_box p,
+.footer_box a {
+    font-size: 1.4rem;
+    color: #ccc;
+}
+
+.footer_box ul {
+    list-style: none;
+}
+
+.footer_box ul li {
+    margin-bottom: 1rem;
+}
+
+.footer_box ul li a:hover {
+    color: #ea1f33;
+}
+
+.footer_bottom {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 1.3rem;
+    color: #aaa;
+    border-top: 1px solid #333;
+    padding-top: 1.5rem;
+}
+/* Bouton Dark / Light */
+.theme-toggle-btn { 
+position: fixed;
+ bottom: 20px; 
+ right: 20px; 
+ width: 55px; 
+ height: 55px; 
+ background: #f97316;
+ border-radius: 50%;
+ display: flex;
+    
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  z-index: 9999; font-size: 24px; } /*passe au-dessus*/
+
+.theme-toggle-btn .icon { position: absolute; 
+transition: opacity 0.3s ease,
+transform 0.3s ease;} 
+
+body:not(.dark) .sun { opacity: 0; transform: scale(2.5); } body.dark .moon { opacity: 0; transform: scale(0.5); }
+
+body.dark {
+  background-color: #111;
+  color: white;
+}
+
+/* MOBILE */
+@media (max-width: 991px) {
+  .navbar-nav {
+    margin-top: 1.5rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.6rem;
+    padding: 1rem 0;
+  }
+}
+/* DESKTOP*/
+@media (min-width: 992px) {
+  .navbar {
+    height: 80px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.4rem;
+  }
+}
+ 
+.brands_list {
+    display: flex;              
+    justify-content: center;    /* centre horizontalement */
+    align-items: center;        /* aligne verticalement */
+    gap: 1rem;                  /* espace entre les logos */
+    flex-wrap: wrap;            /* passe à la ligne sur mobile */
+    margin-top: 8rem;
+}
+.brands_list img {
+    width: 160px;           /* largeur identique */
+    height: 90px;        /* hauteur identique */
+    object-fit: contain; 
+    background: white;   /* optionnel */
+   
+}
+#brands {
+    margin-bottom: 10em;
+}
+
+#brands .section_title {
+    margin-top: 3rem;   /* augmente ou diminue selon ton goût */
+}
