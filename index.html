@@ -1,165 +1,361 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LuxeCars</title>
-    <link rel="icon" href="/projet_cars/images/logo.jpg" type="image/x-icon"/>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
- <!-- Bootstrap CSS -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
- <!-- JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  </head>
+    <link rel="icon" href="./images/logo.jpg" type="image/x-icon"/>
+    <meta name="description" content="LuxeCars : marketplace de véhicules de luxe. Découvrez des modèles premium, services d’assistance, et un accompagnement personnalisé.">
+    <meta name="theme-color" content="#ea1f33">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload" as="image" href="./images/porche.webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-4wfcD1gvfo4PdiTXMKO7ERK6DmJyNqf3QhSQA1/5qkDO7D7InwIqB2x2SByJpLuis4203csEjiNSZ10PzO" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjH3xwIJqWCVP04ignLPpho0DsKJendUqS1+xUO1KmCvCWaCOcO9" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css?v=pro">
+</head>
   
 <body>
+  <a class="skip-link" href="#home">Aller au contenu</a>
+
+  <div class="dealer-topbar" aria-label="Informations concession">
+    <div>
+      <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Bizerte, Tunisie</span>
+      <span><i class="fa-solid fa-clock" aria-hidden="true"></i> Lun-Sam 9:00 - 19:00</span>
+    </div>
+    <div>
+      <a href="tel:+21628256278"><i class="fa-solid fa-phone" aria-hidden="true"></i> +216 28 256 278</a>
+      <a href="#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Demander une offre</a>
+    </div>
+  </div>
 
    <!--  header  -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-danger">
-  <div class="container">
+<nav class="navbar navbar-expand-lg navbar-light main-nav sticky-top" aria-label="Navigation principale">
+  <div class="container nav-container">
 
-   <a class="navbar-brand fw-bold fs-2" href="#">
-      <span class="text-danger">Luxe</span>Cars
+   <a class="navbar-brand brand-link" href="#home" aria-label="LuxeCars - Accueil">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name"><span class="text-danger">Luxe</span>Cars</span>
     </a>
 
-    <button class="navbar-toggler" type="button"
+    <button class="navbar-toggler nav-toggler" type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#mainNavbar">
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Ouvrir le menu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="mainNavbar">
+    <div class="collapse navbar-collapse nav-menu" id="mainNavbar">
 
-  <ul class="navbar-nav mx-lg-auto gap-lg-4 text-center">
-    <li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
+  <ul class="navbar-nav main-nav-links mx-lg-auto align-items-lg-center">
+    <li class="nav-item"><a class="nav-link active" href="#home" aria-current="page">Accueil</a></li>
+    <li class="nav-item"><a class="nav-link" href="#brands">Marques</a></li>
     <li class="nav-item"><a class="nav-link" href="#cars">Véhicules</a></li>
+    <li class="nav-item"><a class="nav-link" href="#finance">Financement</a></li>
+    <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+    <li class="nav-item"><a class="nav-link" href="#reviews">Avis</a></li>
     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
   </ul>
 
-  <div class="d-flex justify-content-lg-end justify-content-center">
-    <a href="#" class="btn btn-danger ms-lg-4 mt-3 mt-lg-0 px-4">
-      Login
-    </a>
+  <div class="nav-actions">
+    <button id="authButton" type="button" class="btn btn-danger nav-auth-btn" data-bs-toggle="modal" data-bs-target="#authModal">
+      <i class="fa-solid fa-user" aria-hidden="true"></i>
+      <span>Connexion</span>
+    </button>
+
+    <div id="accountMenu" class="dropdown d-none">
+      <button class="btn btn-outline-danger dropdown-toggle nav-auth-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa-solid fa-circle-user" aria-hidden="true"></i>
+        <span>Compte</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><span id="accountEmail" class="dropdown-item-text small text-muted"></span></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><button id="logoutButton" class="dropdown-item" type="button">Se déconnecter</button></li>
+      </ul>
+    </div>
   </div>
 </div>
   </div>
 </nav>
 
 
-
-      <section id="home">
+<main>
+      <section id="home" aria-label="Présentation">
         <div class="left">
-        <h1> Buy <span>your Cars </span>cheaper from us</h1>
-        <p>Discover a world of prestige and performance on our 
-        luxury vehicle marketplace. Our platform offers an exclusive
-        selection of high-end cars, including premium sedans, sports 
-        cars, and elite SUVs from the most prestigious brands.
-        Each vehicle is carefully inspected to guarantee exceptional
-        quality and reliability. With a seamless online purchasing 
-        experience, personalized assistance, and secure transactions,
-        our site makes it easier than ever to own the luxury car of your
-        dreams. Explore our collection and elevate your driving 
-        experience today.</p>
-        <a href="#">BUY NOW</a>
+        <div class="hero-pill">
+          <i class="fa-solid fa-crown" aria-hidden="true"></i>
+          <span>Marketplace premium • Véhicules contrôlés</span>
+        </div>
+        <h1>Achetez <span>votre voiture</span> au meilleur prix</h1>
+        <p>Découvrez un univers de prestige et de performance avec notre sélection exclusive de véhicules haut de gamme : berlines premium, sportives et SUV d’exception. Chaque modèle est soigneusement inspecté pour garantir qualité et fiabilité. Profitez d’une expérience d’achat simple, d’un accompagnement personnalisé et de transactions sécurisées.</p>
+        <div class="hero-actions">
+          <a class="cta" href="#cars">Voir les véhicules</a>
+          <a class="cta secondary" href="#finance">Financement</a>
+        </div>
+        <div class="hero-stats" aria-label="Statistiques">
+          <div class="stat"><strong>24/7</strong><span>Assistance</span></div>
+          <div class="stat"><strong>100%</strong><span>Contrôle qualité</span></div>
+          <div class="stat"><strong>+50</strong><span>Modèles premium</span></div>
+        </div>
         </div>
         <div class="right">
-            <img src="/projet_cars/images/porche.webp">
+            <img src="./images/porche.webp" alt="Porsche de luxe en vitrine" width="900" height="520" decoding="async" fetchpriority="high">
+            <div class="hero-card">
+              <span>Offre sélectionnée</span>
+              <strong>Porsche 911 Turbo S</strong>
+              <small>Garantie + livraison premium</small>
+            </div>
         </div>
       </section>
 
+      <section id="finance" class="dealer-actions" aria-label="Services rapides">
+        <a href="#contact" class="dealer-action">
+          <i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i>
+          <span>Pré-approbation</span>
+          <strong>Simulation financement</strong>
+        </a>
+        <a href="#contact" class="dealer-action">
+          <i class="fa-solid fa-car-rear" aria-hidden="true"></i>
+          <span>Reprise</span>
+          <strong>Estimer votre véhicule</strong>
+        </a>
+        <a href="#cars" class="dealer-action">
+          <i class="fa-solid fa-key" aria-hidden="true"></i>
+          <span>Inventaire</span>
+          <strong>Véhicules disponibles</strong>
+        </a>
+      </section>
+
 <section id="brands">
-  <h1 class="section_title">Nos Marques</h1>
+  <h2 class="section_title">Nos Marques</h2>
+  <p class="section_subtitle">Les constructeurs les plus prestigieux, sélectionnés pour leur performance et leur élégance.</p>
   <div class="brands_list">
-    <img src="/projet_cars/images/lambur.webp" alt="Lamborghini">
-    <img src="/projet_cars/images/ferarri.png" alt="Ferrari">
-    <img src="/projet_cars/images/audilogo.webp" alt="Audi">
-    <img src="/projet_cars/images/porsche.webp" alt="Porsche">
-    <img src="/projet_cars/images/bm.webp" alt="BMW">
+    <img src="./images/lambur.webp" alt="Logo Lamborghini" loading="lazy" decoding="async" width="160" height="90">
+    <img src="./images/ferarri.png" alt="Logo Ferrari" loading="lazy" decoding="async" width="160" height="90">
+    <img src="./images/audilogo.webp" alt="Logo Audi" loading="lazy" decoding="async" width="160" height="90">
+    <img src="./images/porsche.webp" alt="Logo Porsche" loading="lazy" decoding="async" width="160" height="90">
+    <img src="./images/bm.webp" alt="Logo BMW" loading="lazy" decoding="async" width="160" height="90">
    
   </div>
 </section>
 
      
     <section id="cars">
-        <h1 class="section_title">Nos vehicules</h1>
+        <h2 class="section_title">Nos véhicules</h2>
+        <p class="section_subtitle">Explorez un catalogue premium avec filtres, favoris, comparaison et demande de devis rapide.</p>
+        <div class="inventory-panel" aria-label="Recherche de véhicules">
+          <div class="inventory-field search-field">
+            <label for="carSearch">Recherche</label>
+            <div class="input-icon">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input id="carSearch" type="search" placeholder="Marque, modèle, énergie..." autocomplete="off">
+            </div>
+          </div>
+          <div class="inventory-field">
+            <label for="brandFilter">Marque</label>
+            <select id="brandFilter">
+              <option value="all">Toutes</option>
+              <option value="lamborghini">Lamborghini</option>
+              <option value="audi">Audi</option>
+              <option value="ferrari">Ferrari</option>
+              <option value="bmw">BMW</option>
+              <option value="porsche">Porsche</option>
+            </select>
+          </div>
+          <div class="inventory-field">
+            <label for="budgetFilter">Budget</label>
+            <select id="budgetFilter">
+              <option value="all">Tous les budgets</option>
+              <option value="0-100000">Moins de 100k$</option>
+              <option value="100000-250000">100k$ - 250k$</option>
+              <option value="250000-999999">Plus de 250k$</option>
+            </select>
+          </div>
+          <button id="resetFilters" class="btn-soft" type="button">
+            <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+            Réinitialiser
+          </button>
+        </div>
+
+        <div class="inventory-summary" aria-live="polite">
+          <span id="resultCount">5 véhicules disponibles</span>
+          <span><i class="fa-solid fa-heart" aria-hidden="true"></i> <strong id="favoriteCount">0</strong> favoris</span>
+          <span><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> <strong id="compareCount">0</strong> à comparer</span>
+        </div>
+
         <div class="images">
-        <ul>
+        <ul id="carGrid">
 
 
-           <li class="car">
-            <div>
-             <img src="/projet_cars/images/car2.webp" alt="">
+           <li class="car" data-id="lamborghini-urus" data-brand="lamborghini" data-name="Lamborghini Urus Performante" data-price="300000" data-type="SUV Sport" data-energy="Essence" data-power="666 ch" data-mileage="8 400 km">
+            <div class="car-media">
+             <img src="./images/car2.webp" alt="Lamborghini Urus Performante" loading="lazy" decoding="async" width="640" height="420">
+             <button class="favorite-btn" type="button" aria-label="Ajouter Lamborghini aux favoris"><i class="fa-regular fa-heart" aria-hidden="true"></i></button>
+             <span class="car-badge">Contrôlé 120 points</span>
             </div>
-            <span>LAMBORGHINI</span>
-            <span class="prix">300.000$</span>
-            <a href="#">ACHETER MAINTENANT</a>
+            <div class="car-body">
+              <span class="car-brand">LAMBORGHINI</span>
+              <h3>Lamborghini Urus Performante</h3>
+              <span class="prix">300.000$</span>
+              <div class="car-specs">
+                <span><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> 666 ch</span>
+                <span><i class="fa-solid fa-road" aria-hidden="true"></i> 8 400 km</span>
+                <span><i class="fa-solid fa-gas-pump" aria-hidden="true"></i> Essence</span>
+              </div>
+              <div class="car-actions">
+                <button class="btn-soft detail-btn" type="button">Détails</button>
+                <button class="btn-soft compare-btn" type="button">Comparer</button>
+                <button class="quote-btn" type="button">Demander un devis</button>
+              </div>
+            </div>
            </li>
 
 
 
-           <li class="car">
-            <div>
-             <img src="/projet_cars/images/audi.jpg" alt="">
+           <li class="car" data-id="audi-rs7" data-brand="audi" data-name="Audi RS7 Sportback" data-price="150000" data-type="Berline Sport" data-energy="Essence" data-power="600 ch" data-mileage="14 200 km">
+            <div class="car-media">
+             <img src="./images/audi.jpg" alt="Audi RS7 Sportback" loading="lazy" decoding="async" width="640" height="420">
+             <button class="favorite-btn" type="button" aria-label="Ajouter Audi aux favoris"><i class="fa-regular fa-heart" aria-hidden="true"></i></button>
+             <span class="car-badge">Livraison premium</span>
             </div>
-            <span>AUDI</span>
-            <span class="prix">150.000$</span>
-            <a href="#">ACHETER MAINTENANT</a>
+            <div class="car-body">
+              <span class="car-brand">AUDI</span>
+              <h3>Audi RS7 Sportback</h3>
+              <span class="prix">150.000$</span>
+              <div class="car-specs">
+                <span><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> 600 ch</span>
+                <span><i class="fa-solid fa-road" aria-hidden="true"></i> 14 200 km</span>
+                <span><i class="fa-solid fa-gas-pump" aria-hidden="true"></i> Essence</span>
+              </div>
+              <div class="car-actions">
+                <button class="btn-soft detail-btn" type="button">Détails</button>
+                <button class="btn-soft compare-btn" type="button">Comparer</button>
+                <button class="quote-btn" type="button">Demander un devis</button>
+              </div>
+            </div>
            </li>
 
 
-           <li class="car">
-            <div>
-             <img src="/projet_cars/images/ferrari.webp" alt="">
+           <li class="car" data-id="ferrari-f8" data-brand="ferrari" data-name="Ferrari F8 Tributo" data-price="320000" data-type="Supercar" data-energy="Essence" data-power="720 ch" data-mileage="5 900 km">
+            <div class="car-media">
+             <img src="./images/ferrari.webp" alt="Ferrari F8 Tributo" loading="lazy" decoding="async" width="640" height="420">
+             <button class="favorite-btn" type="button" aria-label="Ajouter Ferrari aux favoris"><i class="fa-regular fa-heart" aria-hidden="true"></i></button>
+             <span class="car-badge">Pack garantie</span>
             </div>
-            <span>FERRARI</span>
-            <span class="prix">320.000$</span>
-            <a href="#">ACHETER MAINTENANT</a>
+            <div class="car-body">
+              <span class="car-brand">FERRARI</span>
+              <h3>Ferrari F8 Tributo</h3>
+              <span class="prix">320.000$</span>
+              <div class="car-specs">
+                <span><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> 720 ch</span>
+                <span><i class="fa-solid fa-road" aria-hidden="true"></i> 5 900 km</span>
+                <span><i class="fa-solid fa-gas-pump" aria-hidden="true"></i> Essence</span>
+              </div>
+              <div class="car-actions">
+                <button class="btn-soft detail-btn" type="button">Détails</button>
+                <button class="btn-soft compare-btn" type="button">Comparer</button>
+                <button class="quote-btn" type="button">Demander un devis</button>
+              </div>
+            </div>
            </li>
 
 
 
-           <li class="car">
-            <div>
-             <img src="/projet_cars/images/bbb.webp" alt="">
+           <li class="car" data-id="bmw-m4" data-brand="bmw" data-name="BMW M4 Competition" data-price="35000" data-type="Coupé" data-energy="Essence" data-power="510 ch" data-mileage="22 000 km">
+            <div class="car-media">
+             <img src="./images/bbb.webp" alt="BMW M4 Competition" loading="lazy" decoding="async" width="640" height="420">
+             <button class="favorite-btn" type="button" aria-label="Ajouter BMW aux favoris"><i class="fa-regular fa-heart" aria-hidden="true"></i></button>
+             <span class="car-badge">Prix opportunité</span>
             </div>
-            <span>BMW</span>
-            <span class="prix">35.000$</span>
-            <a href="#">ACHETER MAINTENANT</a>
+            <div class="car-body">
+              <span class="car-brand">BMW</span>
+              <h3>BMW M4 Competition</h3>
+              <span class="prix">35.000$</span>
+              <div class="car-specs">
+                <span><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> 510 ch</span>
+                <span><i class="fa-solid fa-road" aria-hidden="true"></i> 22 000 km</span>
+                <span><i class="fa-solid fa-gas-pump" aria-hidden="true"></i> Essence</span>
+              </div>
+              <div class="car-actions">
+                <button class="btn-soft detail-btn" type="button">Détails</button>
+                <button class="btn-soft compare-btn" type="button">Comparer</button>
+                <button class="quote-btn" type="button">Demander un devis</button>
+              </div>
+            </div>
            </li>
 
-            <li class="car">
-            <div>
-             <img src="/projet_cars/images/ppp.webp" alt="">
+            <li class="car" data-id="porsche-911" data-brand="porsche" data-name="Porsche 911 Turbo S" data-price="350000" data-type="Sportive" data-energy="Essence" data-power="650 ch" data-mileage="6 700 km">
+            <div class="car-media">
+             <img src="./images/ppp.webp" alt="Porsche 911 Turbo S" loading="lazy" decoding="async" width="640" height="420">
+             <button class="favorite-btn" type="button" aria-label="Ajouter Porsche aux favoris"><i class="fa-regular fa-heart" aria-hidden="true"></i></button>
+             <span class="car-badge">Disponible immédiat</span>
             </div>
-            <span>PORSCHE</span>
-            <span class="prix">350.000$</span>
-            <a href="#">ACHETER MAINTENANT</a>
+            <div class="car-body">
+              <span class="car-brand">PORSCHE</span>
+              <h3>Porsche 911 Turbo S</h3>
+              <span class="prix">350.000$</span>
+              <div class="car-specs">
+                <span><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> 650 ch</span>
+                <span><i class="fa-solid fa-road" aria-hidden="true"></i> 6 700 km</span>
+                <span><i class="fa-solid fa-gas-pump" aria-hidden="true"></i> Essence</span>
+              </div>
+              <div class="car-actions">
+                <button class="btn-soft detail-btn" type="button">Détails</button>
+                <button class="btn-soft compare-btn" type="button">Comparer</button>
+                <button class="quote-btn" type="button">Demander un devis</button>
+              </div>
+            </div>
           </li>
          
   
            </ul>
+           <p id="emptyCars" class="empty-state d-none">Aucun véhicule ne correspond à vos critères. Essayez une autre recherche.</p>
         </div>
     </section>
 
 
+    <section id="process" class="process-section">
+      <h2 class="section_title">Achat sécurisé</h2>
+      <p class="section_subtitle">Un parcours simple, clair et accompagné par un conseiller du premier contact à la livraison.</p>
+      <div class="process-grid">
+        <article class="process-card">
+          <span>01</span>
+          <h3>Sélection</h3>
+          <p>Choisissez un modèle, comparez les options et recevez une recommandation selon votre budget.</p>
+        </article>
+        <article class="process-card">
+          <span>02</span>
+          <h3>Inspection</h3>
+          <p>Chaque véhicule passe par un contrôle technique, historique, carrosserie et essai routier.</p>
+        </article>
+        <article class="process-card">
+          <span>03</span>
+          <h3>Financement</h3>
+          <p>Simulation personnalisée, acompte sécurisé et préparation administrative complète.</p>
+        </article>
+        <article class="process-card">
+          <span>04</span>
+          <h3>Livraison</h3>
+          <p>Remise du véhicule, documents, garantie et assistance premium dès le premier jour.</p>
+        </article>
+      </div>
+    </section>
+
 
     <section id="services">
   
-        <h1 class="section_title">Nos services</h1>
+        <h2 class="section_title">Nos services</h2>
+        <p class="section_subtitle">Assistance, remorquage et support sur-mesure pour véhicules d’exception.</p>
         <div class="list_services">
           <div class="service">
             <i class="fa-solid fa-screwdriver-wrench"></i>
-            <h3>Breakdown Assistance</h3>
+            <h3>Assistance dépannage</h3>
             <p>
-              Our specialized breakdown service is dedicated to luxury
-              vehicles, providing fast and reliable roadside support 
-              24/7. From mechanical failures to flat tires, our expert 
-              team delivers professional assistance to ensure your
-              vehicle is safely handled and quickly back on the road.
+              Un service dédié aux véhicules de luxe, disponible 24/7. En cas de panne, crevaison ou souci mécanique, notre équipe intervient rapidement avec des équipements adaptés pour une prise en charge sûre et professionnelle.
             </p>
             <a href="#" class="read_more">Lire Plus </a>
           </div>
@@ -169,26 +365,18 @@
 
           <div class="service">
             <i class="fa-solid fa-car-side"></i>
-            <h3>Luxury Vehicle Towing</h3>
+            <h3>Remorquage premium</h3>
             <p>
-               Our Specialized towing service designed exclusively for luxury and sports vehicles.
-              We provide secure and damage-free transport using 
-              professional equipment, ensuring careful handling and maximum 
-              protection of your vehicle from pickup to delivery.
+              Transport sécurisé et sans dommage, spécialement conçu pour les véhicules de luxe et sportifs. Matériel professionnel, fixation adaptée et manipulation soignée du point de départ jusqu’à la livraison.
             </p>
               <a href="#" class="read_more">Lire Plus </a>
           </div>
 
           <div class="service">
            <i class="fa-solid fa-car-battery"></i>
-            <h3>Roadside Assistance</h3>
+            <h3>Assistance routière</h3>
             <p>
-              Our premium roadside assistance service is designed 
-              specifically for luxury vehicles, offering fast and 
-              reliable support around the clock. Whether it’s a flat tire
-              , battery issue, or minor mechanical problem, our expert 
-              team provides professional on-site care to get your vehicle
-               safely back on the road with minimal delay.
+              Une assistance rapide, fiable et disponible à toute heure. Batterie, pneu, ou petit problème mécanique : nous intervenons sur place pour vous remettre en route avec un minimum d’attente.
             </p>
               <a href="#" class="read_more">Lire Plus </a>
 
@@ -197,9 +385,50 @@
         </div>
   </section>
 
+  <section id="reviews" class="reviews-section">
+    <h2 class="section_title">Ils nous font confiance</h2>
+    <p class="section_subtitle">Des acheteurs exigeants, accompagnés avec précision et transparence.</p>
+    <div class="review-grid">
+      <article class="review-card">
+        <div class="stars" aria-label="5 étoiles">★★★★★</div>
+        <p>“Livraison impeccable, dossier complet et véhicule exactement conforme aux photos.”</p>
+        <strong>Amine B.</strong>
+        <span>Porsche 911 Turbo S</span>
+      </article>
+      <article class="review-card">
+        <div class="stars" aria-label="5 étoiles">★★★★★</div>
+        <p>“Le comparateur m’a aidé à choisir vite. L’équipe a été claire sur le financement.”</p>
+        <strong>Sarra M.</strong>
+        <span>Audi RS7 Sportback</span>
+      </article>
+      <article class="review-card">
+        <div class="stars" aria-label="5 étoiles">★★★★★</div>
+        <p>“Service premium du premier appel jusqu’à la remise des clés. Très professionnel.”</p>
+        <strong>Karim T.</strong>
+        <span>BMW M4 Competition</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="trust-section" aria-label="Garanties LuxeCars">
+    <div class="trust-content">
+      <div>
+        <span class="eyebrow">Pourquoi LuxeCars</span>
+        <h2>Un achat haut de gamme doit rester simple, sûr et transparent.</h2>
+      </div>
+      <div class="trust-grid">
+        <div><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><span>Historique vérifié</span></div>
+        <div><i class="fa-solid fa-file-signature" aria-hidden="true"></i><span>Dossier administratif</span></div>
+        <div><i class="fa-solid fa-truck-fast" aria-hidden="true"></i><span>Livraison sécurisée</span></div>
+        <div><i class="fa-solid fa-headset" aria-hidden="true"></i><span>Assistance 24/7</span></div>
+      </div>
+    </div>
+  </section>
+
   
  <section id="contact">
-   <h1 class="section_title">Notre adresse</h1>
+   <h2 class="section_title">Notre adresse</h2>
+   <p class="section_subtitle">Un message ? Notre équipe vous répond rapidement.</p>
         <div class="localisation_contact">
 
           <div class="localisation">
@@ -207,12 +436,17 @@
           </div>  
           <div class="form_contact">
               <h3>Envoyer un message</h3>
-              <form action="#">
-                <input type="text"placeholder="Nom">
-                <input type="email"placeholder="Adresse Mail">
-                <input type="text"placeholder="Objet">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
+              <form id="contactForm" action="#">
+                <label class="visually-hidden" for="name">Nom</label>
+                <input id="name" name="name" type="text" placeholder="Nom" autocomplete="name" required>
+                <label class="visually-hidden" for="email">Adresse mail</label>
+                <input id="email" name="email" type="email" placeholder="Adresse mail" autocomplete="email" required>
+                <label class="visually-hidden" for="subject">Objet</label>
+                <input id="subject" name="subject" type="text" placeholder="Objet" required>
+                <label class="visually-hidden" for="message">Message</label>
+                <textarea id="message" name="message" cols="30" rows="10" placeholder="Message" required></textarea>
                 <input type="submit" value="Envoyer">
+                <p id="contactFeedback" class="form-feedback" aria-live="polite"></p>
               </form>
           </div>
 
@@ -226,6 +460,9 @@
 
 
 
+
+</main>
+
 <footer class="footer">
     <div class="footer_container">
 
@@ -237,9 +474,11 @@
         <div class="footer_box">
             <h3>Navigation</h3>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#cars">Cars</a></li>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#cars">Véhicules</a></li>
+                <li><a href="#process">Process</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#reviews">Avis</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -247,9 +486,9 @@
 
         <div class="footer_box">
             <h3>Contact</h3>
-            <p>📍 Tunisie, Bizerte</p>
-            <p>📞 +216 28 256 278</p>
-            <p>✉️ contact@luxurycars.com</p>
+            <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Tunisie, Bizerte</p>
+            <p><i class="fa-solid fa-phone" aria-hidden="true"></i> +216 28 256 278</p>
+            <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> contact@luxurycars.com</p>
         </div>
 
     </div>
@@ -264,27 +503,81 @@
 <input type="checkbox" id="theme-toggle" hidden>
 
 <label for="theme-toggle" class="theme-toggle-btn">
-  <span class="icon moon">🌙</span>
-  <span class="icon sun">☀️</span>
+  <span class="icon moon" aria-hidden="true"><i class="fa-solid fa-moon"></i></span>
+  <span class="icon sun" aria-hidden="true"><i class="fa-solid fa-sun"></i></span>
+  <span class="visually-hidden">Activer/désactiver le thème</span>
 </label>
-<script>
-  const toggle = document.getElementById("theme-toggle");
-  const body = document.body;
 
-  if (localStorage.getItem("theme") === "dark") {
-    body.classList.add("dark");
-    toggle.checked = true;
-  }
+<!-- Auth Modal -->
+<div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content auth-modal">
+      <div class="modal-header">
+        <h5 class="modal-title" id="authModalLabel">Connexion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body">
+        <div id="authAlert" class="alert alert-danger d-none" role="alert"></div>
 
-  toggle.addEventListener("change", () => {
-    body.classList.toggle("dark", toggle.checked);
-    localStorage.setItem(
-      "theme",
-      toggle.checked ? "dark" : "light"
-    );
-  });
-</script>
+        <form id="loginForm" novalidate>
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email</label>
+            <input id="loginEmail" class="form-control" type="email" autocomplete="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Mot de passe</label>
+            <input id="loginPassword" class="form-control" type="password" autocomplete="current-password" minlength="6" required>
+          </div>
+          <button class="btn btn-danger w-100" type="submit">Se connecter</button>
+          <p class="text-center small text-muted mt-3 mb-0">
+            Pas de compte ? <button id="showSignup" class="btn btn-link p-0 align-baseline" type="button">Créer un compte</button>
+          </p>
+        </form>
 
+        <form id="signupForm" class="d-none" novalidate>
+          <div class="mb-3">
+            <label for="signupEmail" class="form-label">Email</label>
+            <input id="signupEmail" class="form-control" type="email" autocomplete="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="signupPassword" class="form-label">Mot de passe</label>
+            <input id="signupPassword" class="form-control" type="password" autocomplete="new-password" minlength="6" required>
+            <div class="form-text">Minimum 6 caractères.</div>
+          </div>
+          <button class="btn btn-danger w-100" type="submit">Créer le compte</button>
+          <p class="text-center small text-muted mt-3 mb-0">
+            Déjà un compte ? <button id="showLogin" class="btn btn-link p-0 align-baseline" type="button">Se connecter</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Vehicle Detail Modal -->
+<div id="vehicleModal" class="site-modal d-none" role="dialog" aria-modal="true" aria-labelledby="vehicleModalTitle">
+  <div class="site-modal-backdrop" data-close-modal></div>
+  <div class="site-modal-panel">
+    <button class="site-modal-close" type="button" data-close-modal aria-label="Fermer les détails">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+    <div class="vehicle-detail">
+      <img id="vehicleModalImage" src="./images/porche.webp" alt="" loading="lazy" decoding="async">
+      <div>
+        <span id="vehicleModalBrand" class="eyebrow">LuxeCars</span>
+        <h2 id="vehicleModalTitle">Véhicule</h2>
+        <p id="vehicleModalText"></p>
+        <div id="vehicleModalSpecs" class="detail-specs"></div>
+        <button id="vehicleQuoteBtn" class="quote-btn" type="button">Demander ce véhicule</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast-message" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55GDOE3QK4aB23dB7t6bCkFn8988" crossorigin="anonymous" defer></script>
+<script src="app.js?v=pro" defer></script>
 
 </body>
 </html>
